@@ -28,6 +28,19 @@
                 <div flex layout-align="start center">{{confirmController.data.customerDetails.email}}</div>
             </div>
             <md-divider></md-divider>
+            <div layout="row" layout-padding="" ng-repeat-start="extra in confirmController.data.extras">
+                <div flex layout-align="start center">Passenger</div>
+                <div flex layout-align="start center">{{'Passenger ' + extra.paxNum}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Extra Bags</div>
+                <div flex layout-align="start center">{{extra.bags}}</div>
+            </div>
+            <div layout="row" layout-padding="" ng-repeat-end>
+                <div flex layout-align="start center">Priority Boarding</div>
+                <div flex layout-align="start center">{{extra.priority ? 'Yes' : 'No'}}</div>
+            </div>
+            <md-divider></md-divider>
             <div layout="row" layout-padding="">
                 <div flex layout-align="start center">Airline Name</div>
                 <div flex layout-align="start center">{{confirmController.data.flightDetails.airlineName}}</div>

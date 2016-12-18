@@ -1,0 +1,67 @@
+<div flex layout="column" layout-align="space-between stretch">
+  <div flex layout="column">
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <h2>
+          <span>1. Search</span>
+        </h2>
+        <h2>
+          <span>2. Select</span>
+        </h2>
+        <h2>
+          <span>3. Details</span>
+        </h2>
+        <h2>
+          <span>4. Extras</span>
+        </h2>
+        <h2 class="faded">
+          <span>5. Confirm</span>
+        </h2>
+        <h2 class="faded">
+          <span>6. Confirmed</span>
+        </h2>
+      </div>
+    </md-toolbar>
+    <div layout="row" layout-padding="" layout-align="center center"><span class="confirm-heading">Choose Extras</span>
+    </div>
+    <form name="extrasForm" class="scroll">
+      <div flex layout="column" class="md-body-1">
+        <div ng-repeat="extra in extrasController.data.extras track by $index">
+          <div layout="row" layout-padding="">
+            <div flex layout="row" layout-align="start center">Passenger</div>
+            <div flex ng-bind="'Passenger ' + extra.paxNum"></div>
+          </div>
+
+          <div layout="row" layout-padding="">
+            <div flex layout="row" layout-align="start center">Extra Bags</div>
+            <md-input-container flex>
+              <input class="text-input" type="number" name="bags_{{$index}}" ng-change="extrasController.saveState()" ng-model="extra.bags"
+                required>
+
+              <div ng-messages="extrasForm['bags_' + $index].$error" class="error" role="alert" layout="column" layout-align="center center"
+                layout-padding="" ng-if="extrasForm['bags_' + $index].$dirty && extrasForm['bags_' + $index].$touched">
+                <div ng-message="required">Extra Bags is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout="row" layout-padding="">
+            <div flex layout="row" layout-align="start center">Priority Boarding</div>
+            <md-input-container flex>
+              <input class="text-input" type="checkbox" name="priority_{{$index}}" ng-change="extrasController.saveState()" ng-model="extra.priority"
+                required>
+
+              <div ng-messages="extrasForm['priority_' + $index].$error" class="error" role="alert" layout="column" layout-align="center center"
+                layout-padding="" ng-if="extrasForm['priority_' + $index].$dirty && extrasForm['priority_' + $index].$touched">
+                <div ng-message="required">Priority Boarding is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div layout="row" layout-align="center center" class="footer-button">
+    <md-button class="md-raised md-primary wide-button" ng-click="extrasController.next()" ng-disabled="!extrasController.data.extras">Continue Booking
+    </md-button>
+  </div>
+</div>

@@ -10,6 +10,7 @@
     var searchParams = undefined;
     var searchResults = undefined;
     var customerDetails = undefined;
+    var extras = undefined;
     var selectedFlight = undefined;
 
     var service = {
@@ -19,6 +20,8 @@
       setSearchResults: setSearchResults,
       getCustomerDetails: getCustomerDetails,
       setCustomerDetails: setCustomerDetails,
+      getExtras: getExtras,
+      setExtras: setExtras,
       setSelectedFlight: setSelectedFlight,
       getSelectedFlight: getSelectedFlight,
       clearState: clearState
@@ -31,6 +34,14 @@
     }
 
     function setSearchParams(searchParameters) {
+      searchParams = getSearchParams();
+      if (searchParams && searchParameters.pax !== searchParams.pax) {
+        extras = undefined;
+      }
+      if (!extras) {
+        removeFromStorage('extras');
+      }
+
       searchParams = searchParameters;
       addToStorage('searchParams', searchParameters);
     }
@@ -60,6 +71,15 @@
       addToStorage('customerDetails', details);
     }
 
+    function getExtras() {
+      return extras || retrieveFromStorage('extras');
+    }
+
+    function setExtras(extrasObj) {
+      extrasObj = extrasObj;
+      addToStorage('extras', extrasObj);
+    }
+
     function getSelectedFlight() {
       return selectedFlight || retrieveFromStorage('selectedFlight');
     }
@@ -74,6 +94,7 @@
       removeFromStorage('searchResults');
       removeFromStorage('selectedFlight');
       removeFromStorage('customerDetails');
+      removeFromStorage('extras');
     }
 
     function retrieveFromStorage(fieldName) {

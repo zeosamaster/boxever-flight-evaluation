@@ -26,11 +26,15 @@
     function activate() {
       vm.data.flightDetails = stateStoreService.getSelectedFlight();
       vm.data.customerDetails = stateStoreService.getCustomerDetails();
+      vm.data.extras = stateStoreService.getExtras();
       if (vm.data.flightDetails === undefined) {
         $state.transitionTo('main.dashboard.search');
       }
       if (vm.data.customerDetails === undefined) {
         $state.transitionTo('main.dashboard.details');
+      }
+      if (vm.data.extras === undefined) {
+        $state.transitionTo('main.dashboard.extras');
       }
     }
 
@@ -51,6 +55,7 @@
     function activate() {
       vm.data.flightDetails = stateStoreService.getSelectedFlight();
       vm.data.customerDetails = stateStoreService.getCustomerDetails();
+      vm.data.extras = stateStoreService.getExtras();
 
     }
 

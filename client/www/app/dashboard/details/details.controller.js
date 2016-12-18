@@ -32,7 +32,7 @@
 
     function next() {
       if (vm.data.customerDetails.name && vm.data.customerDetails.email) {
-        $state.transitionTo('main.dashboard.confirm');
+        $state.transitionTo('main.dashboard.extras');
       }
     }
 

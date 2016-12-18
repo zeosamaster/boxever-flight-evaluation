@@ -33,6 +33,8 @@ module.exports = function (config) {
                  'www/app/dashboard/search/*.js',
                  'www/app/dashboard/details/details.module.js',
                  'www/app/dashboard/details/*.js',
+                 'www/app/dashboard/extras/extras.module.js',
+                 'www/app/dashboard/extras/*.js',
                  'www/app/dashboard/confirm/confirm.module.js',
                  'www/app/dashboard/confirm/*.js',
                  'www/app/dashboard/dashboard.module.js',
