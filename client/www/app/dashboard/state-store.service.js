@@ -9,7 +9,7 @@
 
     var searchParams = undefined;
     var searchResults = undefined;
-    var customerDetails = {};
+    var customerDetails = undefined;
     var selectedFlight = undefined;
 
     var service = {
@@ -40,7 +40,12 @@
     }
 
     function setSearchResults(results) {
-      selectedFlight = undefined; //TODO
+      if (results && selectedFlight && (selectedFlight.from !== results.from || selectedFlight.to !== results.to)) {
+        selectedFlight = undefined; //TODO
+      }
+      if (!selectedFlight) {
+        removeFromStorage('selectedFlight');
+      }
 
       addToStorage('searchResults', results);
       searchResults = results;
@@ -65,21 +70,27 @@
     }
 
     function clearState() {
-
-      storage.removeItem('searchParams');
-      storage.removeItem('searchResults');
-      storage.removeItem('selectedFlight');
-      storage.removeItem('customerDetails');
+      removeFromStorage('searchParams');
+      removeFromStorage('searchResults');
+      removeFromStorage('selectedFlight');
+      removeFromStorage('customerDetails');
     }
 
     function retrieveFromStorage(fieldName) {
-
-      return window.localStorage.getItem(fieldName);
+      var item = window.localStorage.getItem(fieldName);
+      try {
+        return JSON.parse(item);
+      } catch (e) {
+        return item;
+      }
     }
 
     function addToStorage(fieldName, value) {
+      return window.localStorage.setItem(fieldName, (typeof value === 'object' ? JSON.stringify(value) : value));
+    }
 
-      return window.localStorage.setItem(fieldName, value);
+    function removeFromStorage(fieldName) {
+      return window.localStorage.removeItem(fieldName);
     }
   }
 })();

@@ -31,8 +31,9 @@
 
     // functions
     function activate() {
-      if (stateStoreService.getSearchParams()) {
-        var searchParams = stateStoreService.getSearchParams();
+      var searchParams = stateStoreService.getSearchParams();
+      if (searchParams) {
+        searchParams.date = new Date(searchParams.date);
         vm.data.searchParams = {};
         angular.extend(vm.data.searchParams, searchParams);
       } else {
