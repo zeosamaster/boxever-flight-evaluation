@@ -1,0 +1,95 @@
+<div flex layout="column" layout-align="space-between stretch">
+    <div flex layout="column">
+        <md-toolbar>
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                <h2>
+                    <span>1. Search</span>
+                </h2>
+                <h2>
+                    <span>2. Select</span>
+                </h2>
+                <h2>
+                    <span>3. Details</span>
+                </h2>
+                <h2>
+                    <span>4. Confirm</span>
+                </h2>
+            </div>
+        </md-toolbar>
+        <div flex layout="column" class="scroll">
+            <div layout="row" layout-padding="" layout-align="center center"><span class="confirm-heading">Customer and Flight Details</span>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Customer Full Name</div>
+                <div flex layout-align="start center">{{confirmController.data.customerDetails.name}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Customer Email</div>
+                <div flex layout-align="start center">{{confirmController.data.customerDetails.email}}</div>
+            </div>
+            <md-divider></md-divider>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Airline Name</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.airlineName}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Aircraft Type</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.aircraftType}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Flight Number</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.flightNumber}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Duration of Flight</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.flightDurationInMins}}
+                    Minutes
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Number of Passengers</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.pax}}</div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">From</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.from}}
+                    ({{confirmController.data.flightDetails.fromId}})
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">To</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.to}}
+                    ({{confirmController.data.flightDetails.toId}})
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Departure Date & Time</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.startDateTime |
+                    date:'medium'}}
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Arrival Date & Time</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.endDateTime |
+                    date:'medium'}}
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Adult Fare (Incl. Taxes and Fees)</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.adultFare |
+                    currency:'€'}}
+                </div>
+            </div>
+            <div layout="row" layout-padding="">
+                <div flex layout-align="start center">Total Fare (Incl. Taxes and Fees)</div>
+                <div flex layout-align="start center">{{confirmController.data.flightDetails.totalFare |
+                    currency:'€'}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center" class="footer-button">
+        <md-button class="md-raised md-primary wide-button" ng-click="confirmController.confirm()">Confirm Booking
+        </md-button>
+    </div>
+</div>

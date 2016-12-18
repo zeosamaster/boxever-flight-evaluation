@@ -1,0 +1,69 @@
+<form name="searchForm" flex layout="column">
+    <div flex layout="column" layout-align="space-between stretch">
+        <div flex layout="column">
+            <md-toolbar>
+                <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                    <h2>
+                        <span>1. Search</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>2. Select</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>3. Details</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>4. Confirm</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>5. Confirmed</span>
+                    </h2>
+                </div>
+            </md-toolbar>
+            <div layout="row" layout-padding="" layout-align="center center"><span
+                    class="confirm-heading">Flight Search</span></div>
+            <div flex layout="column">
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Departure Airport</div>
+                    <md-select flex placeholder="From" ng-model="searchController.data.searchParams.from"
+                               md-on-close="searchController.updateToAirports()" class="search-input" required>
+                        <md-option ng-value="fromAirport.id"
+                                   ng-repeat="fromAirport in searchController.data.fromAirports track by fromAirport.id">
+                            {{fromAirport.name}} [{{fromAirport.id}}]
+                        </md-option>
+                    </md-select>
+                </div>
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Destination Airport</div>
+                    <md-select flex placeholder="To" ng-model="searchController.data.searchParams.to"
+                               md-on-close="searchController.updateFromAirports()" class="search-input" required>
+                        <md-option ng-value="toAirport.id"
+                                   ng-repeat="toAirport in searchController.data.toAirports track by toAirport.id">
+                            {{toAirport.name}} [{{toAirport.id}}]
+                        </md-option>
+                    </md-select>
+                </div>
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Date of Travel</div>
+                    <div flex class="date-input">
+                        <md-datepicker ng-model="searchController.data.searchParams.date"
+                                       md-placeholder="Date of Travel" md-min-date="searchController.data.currentDate"
+                                       required></md-datepicker>
+                    </div>
+                </div>
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Number of Persons</div>
+                    <md-select flex placeholder="Number of Person(s)" ng-model="searchController.data.searchParams.pax"
+                               class="search-input" required>
+                        <md-option ng-value="value" ng-repeat="value in [1,2,3,4,5]">{{value}}</md-option>
+                    </md-select>
+                </div>
+            </div>
+        </div>
+        <div layout="row" layout-align="center center" class="footer-button">
+            <md-button class="md-raised md-primary wide-button" ng-click="searchController.search()"
+                       ng-disabled="searchForm.$invalid">Search Flights
+            </md-button>
+        </div>
+    </div>
+</form>

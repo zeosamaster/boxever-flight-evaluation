@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Boxever Test App - Home</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body ng-app="main" ng-cloak>
+
+<div layout="column" flex ui-view="main" layout-fill="" layout-gt-sm="row"></div>
+
+<!--Libraries-->
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./bower_components/angular-resource/angular-resource.js"></script>
+<script src="./bower_components/angular-animate/angular-animate.js"></script>
+<script src="./bower_components/angular-aria/angular-aria.js"></script>
+<script src="./bower_components/angular-material/angular-material.js"></script>
+<script src="./bower_components/moment/moment.js"></script>
+<script src="./bower_components/angular-moment/angular-moment.js"></script>
+<script src="./bower_components/angular-messages/angular-messages.js"></script>
+
+<!--Main module-->
+<script src="./app/main.module.js"></script>
+<script src="./app/main.config.js"></script>
+<script src="./app/main.routes.js"></script>
+
+<!--Dashboard module-->
+<script src="./app/dashboard/dashboard.module.js"></script>
+<script src="./app/dashboard/dashboard.routes.js"></script>
+<script src="./app/dashboard/dashboard.controller.js"></script>
+<script src="./app/dashboard/spinner.service.js"></script>
+<script src="./app/dashboard/state-store.service.js"></script>
+
+<!--Search module-->
+<script src="./app/dashboard/search/search.module.js"></script>
+<script src="./app/dashboard/search/search.routes.js"></script>
+<script src="./app/dashboard/search/search.controller.js"></script>
+<script src="./app/dashboard/search/search.service.js"></script>
+<script src="./app/dashboard/search/airports.service.js"></script>
+
+<!--Select module-->
+<script src="./app/dashboard/select/select.module.js"></script>
+<script src="./app/dashboard/select/select.routes.js"></script>
+<script src="./app/dashboard/select/select.controller.js"></script>
+
+<!--Details module-->
+<script src="./app/dashboard/details/details.module.js"></script>
+<script src="./app/dashboard/details/details.routes.js"></script>
+<script src="./app/dashboard/details/details.controller.js"></script>
+
+<!--Confirm module-->
+<script src="./app/dashboard/confirm/confirm.module.js"></script>
+<script src="./app/dashboard/confirm/confirm.routes.js"></script>
+<script src="./app/dashboard/confirm/confirm.controller.js"></script>
+</body>
+</html>

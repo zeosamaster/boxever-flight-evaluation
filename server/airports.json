@@ -1,0 +1,12 @@
+{
+    "DUB": "Dublin",
+    "ORK": "Cork",
+    "LHR": "London Heathrow",
+    "LGW": "London Gatwick",
+    "MAN": "Manchester",
+    "STN": "London Stansted",
+    "LTN": "London Luton",
+    "EDI": "Edinburgh",
+    "BHX": "Birmingham",
+    "GLA": "Glasgow"
+}

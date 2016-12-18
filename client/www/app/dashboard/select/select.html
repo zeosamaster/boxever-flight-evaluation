@@ -1,0 +1,65 @@
+<div flex layout="column" layout-fill="">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+            <h2>
+                <span>1. Search</span>
+            </h2>
+            <h2>
+                <span>2. Select</span>
+            </h2>
+            <h2 class="faded">
+                <span>3. Details</span>
+            </h2>
+            <h2 class="faded">
+                <span>4. Confirm</span>
+            </h2>
+            <h2 class="faded">
+                <span>5. Confirmed</span>
+            </h2>
+        </div>
+    </md-toolbar>
+    <div layout="row" layout-padding="" layout-align="center center"><span class="confirm-heading">Select Flight</span>
+    </div>
+    <div flex layout="column" class="scroll md-body-1">
+        <md-radio-group ng-model="selectController.data.selectedFlight" ng-change="selectController.saveState()">
+            <div ng-repeat='flight in selectController.data.searchResults | orderBy: "totalFare"' class="row">
+                <div flex layout='row' layout-padding layout-align="start center">
+                    <div flex layout="column">
+                        <span class="flights-list-heading">Flight</span>
+                        <span>{{flight.airlineName}}</span>
+                        <span>{{flight.flightNumber}}</span>
+                        <span>Type: {{flight.aircraftType}}</span>
+                    </div>
+                    <div flex layout="column">
+                        <span class="flights-list-heading">From</span>
+                        <span>{{flight.from}}({{flight.fromId}})</span>
+                        <span>{{flight.startDateTime | date:'mediumDate'}}</span>
+                        <span>{{flight.startDateTime | date:'shortTime'}}</span>
+                    </div>
+                    <div flex layout="column">
+                        <span class="flights-list-heading">To</span>
+                        <span>{{flight.to}}({{flight.toId}})</span>
+                        <span>{{flight.endDateTime | date:'mediumDate'}}</span>
+                        <span>{{flight.endDateTime | date:'shortTime'}}</span>
+                    </div>
+                    <div flex layout="column">
+                        <md-radio-button flex
+                                         ng-value="flight"
+                                         class="md-primary">
+                            <span>Total {{flight.totalFare | currency:'€'}}</span>
+                        </md-radio-button>
+                        <span>No. of Adults: {{flight.pax}}</span>
+                        <span>Duration: {{flight.flightDurationInMins}} minutes</span>
+                    </div>
+
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </md-radio-group>
+    </div>
+    <div layout="row" layout-align="center center" class="footer-button">
+        <md-button class="md-raised md-primary wide-button" ng-click="selectController.next()"
+                   ng-disabled="!selectController.data.selectedFlight">Continue Booking
+        </md-button>
+    </div>
+</div>

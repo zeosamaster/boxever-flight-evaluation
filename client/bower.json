@@ -1,0 +1,26 @@
+{
+    "name": "Boxever-Test-App",
+    "description": "A Boxever App",
+    "version": "0.1.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "angular": "^1.4.8",
+        "angular-animate": "^1.4.8",
+        "angular-aria": "^1.4.8",
+        "angular-material": "^1.0.0",
+        "angular-resource": "~1.4.9",
+        "angular-ui-router": "~0.2.16",
+        "angular-treasure-overlay-spinner": "~1.1.0",
+        "angular-moment": "~0.10.3",
+        "moment": "~2.11.2",
+        "ng-messages": "*"
+    },
+    "devDependencies": {
+        "angular-material": "https://github.com/angular/bower-material.git#master"
+    },
+    "resolutions": {
+        "moment": "~2.11.2",
+        "angular": "^1.4.8"
+    }
+}

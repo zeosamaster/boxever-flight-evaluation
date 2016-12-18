@@ -1,0 +1,63 @@
+<div flex layout="column" layout-align="space-between stretch">
+    <div flex layout="column">
+        <form name="detailsForm">
+            <md-toolbar>
+                <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                    <h2>
+                        <span>1. Search</span>
+                    </h2>
+                    <h2>
+                        <span>2. Select</span>
+                    </h2>
+                    <h2>
+                        <span>3. Details</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>4. Confirm</span>
+                    </h2>
+                    <h2 class="faded">
+                        <span>5. Confirmed</span>
+                    </h2>
+                </div>
+            </md-toolbar>
+            <div layout="row" layout-padding="" layout-align="center center"><span class="confirm-heading">Customer Details</span>
+            </div>
+            <div flex layout="column">
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Customer Full Name</div>
+                    <md-input-container flex>
+                        <input class="text-input" type="text" name="name" ng-minlength="3"
+                               ng-change="detailsController.saveState()"
+                               ng-model="detailsController.data.customerDetails.name" required>
+
+                        <div ng-messages="detailsForm.name.$error" class="error" role="alert" layout="column"
+                             layout-align="center center" layout-padding=""
+                             ng-if="detailsForm.name.$dirty && detailsForm.name.$touched">
+                            <div ng-message="required">Customer Name is required.</div>
+                            <div ng-message="minlength">Customer Name is too short.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="row" layout-padding="">
+                    <div flex layout="row" layout-align="start center">Customer Email Address</div>
+                    <md-input-container flex>
+                        <input class="text-input" type="email" name="email" ng-change="detailsController.saveState()"
+                               ng-model="detailsController.data.customerDetails.email" required>
+
+                        <div ng-messages="detailsForm.email.$error" class="error" role="alert" layout="column"
+                             layout-align="center center" layout-padding=""
+                             ng-if="detailsForm.email.$dirty && detailsForm.email.$touched">
+                            <div ng-message="required">Email is required.</div>
+                            <div ng-message="email">Please enter a valid email.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div layout="row" layout-align="center center" class="footer-button">
+        <md-button class="md-raised md-primary wide-button" ng-click="detailsController.next()"
+                   ng-disabled="detailsForm.$invalid">Continue Booking
+        </md-button>
+    </div>
+</div>
